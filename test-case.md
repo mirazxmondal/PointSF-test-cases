@@ -1,6 +1,4 @@
-# PointSF Master Test Case List
-
----
+# PointSF Test Case 
 
 ## App Launch Screen
 
@@ -31,7 +29,6 @@
 9. **Re-launch after permissions granted**  
    *Expected Outcome:* On relaunch, splash and permission prompts do not reappear once permissions are granted.
 
----
 
 ## POI Loading Screen
 
@@ -53,7 +50,7 @@
 6. **Slow network simulation**  
    *Expected Outcome:* Loading animation continues smoothly; timeout or retry message appears under poor connectivity.
 
----
+
 
 ## Scan View – Basics
 
@@ -84,7 +81,7 @@
 9. **Recenter after background/resume**  
    *Expected Outcome:* After minimizing and reopening the app, the pointer and compass recalibrate correctly.
 
----
+
 
 ## Scan View – Special Notes
 
@@ -109,7 +106,7 @@
 7. **Negative – POI data latency**  
    *Expected Outcome:* App continues showing cached POIs without freezing.
 
----
+
 
 ## POIs in Focus
 
@@ -137,7 +134,7 @@
 8. **Focus handover rule**  
    *Expected Outcome:* When two POIs overlap, the one nearest or most centered takes priority in focus.
 
----
+
 
 ## Locking / Unlocking a POI
 
@@ -156,7 +153,6 @@
 5. **Lock persistence**  
    *Expected Outcome:* Locked POI remains locked after minimizing and reopening the app.
 
----
 
 ## Overlapping POIs
 
@@ -175,7 +171,6 @@
 5. **Negative – Close icon validation**  
    *Expected Outcome:* No close (x) icon on summary cards.
 
----
 
 ## Birds-eye View
 
@@ -200,7 +195,7 @@
 7. **Map re-entry state**  
    *Expected Outcome:* Re-entering Birds-eye view restores previous zoom and pitch levels.
 
----
+
 
 ## POI Info Details Screen
 
@@ -219,7 +214,7 @@
 5. **Negative – Long AI response**  
    *Expected Outcome:* Text scrolls smoothly; UI remains responsive.
 
----
+
 
 ## App Message Dialog Box
 
@@ -232,7 +227,6 @@
 3. **Negative – Multiple dialogs triggered simultaneously**  
    *Expected Outcome:* Only one dialog visible; others queued or dismissed.
 
----
 
 ## Dark Mode
 
@@ -251,21 +245,17 @@
 5. **Dynamic elements theme validation**  
    *Expected Outcome:* Dynamic content (AI-generated text, buttons, dialogs) properly switch themes in both modes.
 
----
 
 ## Transition Between Views
 
 1. **Verify animation between Scan and Birds-eye mode**  
    *Expected Outcome:* Smooth circular wipe animation plays every time without lag or frame drop.
 
----
 
 ## Inside POI Behavior
 
 1. **User physically inside a POI**  
    *Expected Outcome:* Special marker or message appears on pointer indicating user is inside the POI.
-
----
 
 ## Optional Extended QA Scenarios
 
