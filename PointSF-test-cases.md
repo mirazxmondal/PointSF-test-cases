@@ -1,5 +1,9 @@
 # PointSF Test Case 
 
+## Pre-Test Requirement
+
+Before starting the test, ensure that the device’s compass and orientation sensors are functioning correctly. You can verify this by comparing compass readings with another reliable device or by checking through internal hardware diagnostics. Accurate compass calibration is essential for validating Scan View and POI alignment behaviors.
+
 ## App Launch Screen
 
 1. **Launch the app for the first time**  
