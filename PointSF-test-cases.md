@@ -151,10 +151,7 @@ Before starting the test, ensure that the device’s compass and orientation sen
 3. **First-time lock hint**  
    *Expected Outcome:* “Flick to unlock” hint appears once per user.
 
-4. **Negative – Rapid flick gesture spam**  
-   *Expected Outcome:* App ignores excess flicks and remains stable.
-
-5. **Lock persistence**  
+4. **Lock persistence**  
    *Expected Outcome:* Locked POI remains locked after minimizing and reopening the app.
 
 
@@ -196,8 +193,7 @@ Before starting the test, ensure that the device’s compass and orientation sen
 6. **Negative – Gesture conflict (zoom + rotate)**  
    *Expected Outcome:* App handles combined gestures gracefully.
 
-7. **Map re-entry state**  
-   *Expected Outcome:* Re-entering Birds-eye view restores previous zoom and pitch levels.
+
 
 
 
