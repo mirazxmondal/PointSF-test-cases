@@ -1,272 +1,290 @@
-# PointSF Test Case 
+# PointSF Test Cases 
+
+---
 
 ## Pre-Test Requirement
 
-Before starting the test, ensure that the device’s compass and orientation sensors are functioning correctly. You can verify this by comparing compass readings with another reliable device or by checking through internal hardware diagnostics. Accurate compass calibration is essential for validating Scan View and POI alignment behaviors.
+Before starting the test, ensure that the device's compass and orientation sensors are functioning correctly. You can verify this by comparing compass readings with another reliable device or by checking internal hardware diagnostics. Accurate compass calibration is essential for validating Scan View and POI alignment behavior.
+
+---
 
 ## App Launch Screen
 
 1. **Launch the app for the first time**  
    *Expected Outcome:* The PointSF logo splash screen displays for a few seconds, followed by a location permission request dialog.
 
-2. **Deny location permission at launch**  
-   *Expected Outcome:* A message appears stating the user cannot proceed without enabling location access. User cannot advance further.
-
-3. **Allow location permission**  
+2. **Grant location permission by selecting "Allow While Using App"/"While Using the App"**  
    *Expected Outcome:* The app proceeds to the POI loading screen.
 
-4. **Set location permission to “Ask Next Time or When I Share”**  
-   *Expected Outcome:* The app requests location permission again upon launch.
+3. **Launch the app with location set to "Allow While Using App"/"While Using the App", then background it, and reopen it**  
+   *Expected Outcome:* The app correctly rechecks location on returning to the foreground and handles the permission state gracefully without displaying the permission prompt.
 
-5. **User outside San Francisco**  
-   *Expected Outcome:* Dialog displays: “This app is currently only available in San Francisco.”
+4. **Launch the app with location set to "Allow While Using App"/"While Using the App", then clear it from the background, and reopen it**  
+    *Expected Outcome:* The app correctly rechecks location on returning to the foreground and handles the permission state gracefully without displaying the permission prompt.
 
-6. **Negative – Kill app before location prompt**  
-   *Expected Outcome:* App should not crash and should relaunch properly next time.
+5. **Set location permission to "Ask Next Time or When I Share"/"Allow Once"**  
+   *Expected Outcome:* The app requests location permission again upon launch (the user needs to close and relaunch the app for the permission prompt to appear).
 
-7. **Negative – GPS disabled at OS level**  
+6. **Set location permission to "Never"/"Don't Allow"**  
+   *Expected Outcome:* A message appears: "Location Permission Denied To use this feature, please enable location access in your iPhone Settings." User cannot advance further.
+
+7. **GPS disabled at OS level (iOS Settings>Disable Location Services)**  
    *Expected Outcome:* App shows a system or in-app prompt instructing the user to enable location services.
 
-8. **App version validation**  
-   *Expected Outcome:* App launches successfully; version and build number match expected release details.
+8. **App version validation**   
+    *Expected Outcome:* App launches successfully; version and build number match expected release details.
 
-9. **Re-launch after permissions granted**  
-   *Expected Outcome:* On relaunch, splash and permission prompts do not reappear once permissions are granted.
+9. **User outside San Francisco**   
+   *Expected Outcome:* Dialog displays: "This app is currently only available in San Francisco."
 
+---
 
 ## POI Loading Screen
 
 1. **Launch app after location permission is granted**  
-   *Expected Outcome:* POI loading screen appears with animated graphics representing loading POIs (not real data).
+   *Expected Outcome:* POI loading screen appears with animated graphics representing loading POIs (not real data) in both Scan and Birds-eye views.
 
 2. **Category filters visibility during loading**  
-   *Expected Outcome:* Category sorting filters remain hidden during loading.
+   *Expected Outcome:* Category sorting filters remain hidden during loading in both Scan and Birds-eye views.
 
-3. **Verify POI caching behavior**  
-   *Expected Outcome:* POIs are prefetched and cached locally for faster reloads in Scan and Birds-eye views.
+3. **Verify POI caching behavior**   
+   *Expected Outcome:* POIs should load faster on subsequent launches or when returning to the app from background, resulting in reduced loading time and a smoother experience across Scan and Birds-eye views. The app should handle relaunch scenarios gracefully without blank screens.
 
-4. **Negative – API failure during POI load**  
-   *Expected Outcome:* App displays a retry message or default error popup without freezing.
+4. **Force quit during loading and relaunch**  
+   *Expected Outcome:* Loading restarts cleanly without corrupted state.
 
-5. **Negative – Cancel loading midway (force quit)**  
-   *Expected Outcome:* App gracefully resumes loading from the beginning next time.
+5. ***API failure during POI load**    
+   *Expected Outcome:* A clear error or retry message is displayed when POIs fail to load, and the app remains responsive without freezing.
 
-6. **Slow network simulation**  
-   *Expected Outcome:* Loading animation continues smoothly; timeout or retry message appears under poor connectivity.
+6. **Slow network simulation**     
+   *Expected Outcome:* Loading animation continues smoothly; no UI freeze.
 
+---
 
+## Scan View 
 
-## Scan View – Basics
+1. **Enter app after loading completes**  
+   *Expected Outcome:* The app opens in Scan mode by default and displays POIs along with category filters.
 
-1. **Default mode upon entering the app**  
-   *Expected Outcome:* App opens in Scan mode by default.
+2. **Toggle between Scan and Birds-eye mode**   
+   *Expected Outcome:* Users are able to switch between Scan and Birds-eye mode smoothly.
 
-2. **Toggle between Scan and Birds-eye mode**  
-   *Expected Outcome:* User can switch between views using the toggle button. Smooth circular wipe animation plays.
+3. **Rapidly toggle between modes multiple times**    
+   *Expected Outcome:* No crash, no UI corruption, animation remains stable.
 
-3. **Category filter behavior**  
-   *Expected Outcome:* Only categories with visible POIs appear. Tapping toggles state. Horizontal scroll works smoothly.
+4. **Move the device left to right and right to left**  
+   *Expected Outcome:* The device heading updates accordingly.
 
-4. **Parallax background layers**  
-   *Expected Outcome:* Three depth layers move at different speeds for realistic depth perception. Foreground moves with POIs.
+5. **Verify pointer behavior**  
+   *Expected Outcome:* The pointer remains fixed at the center and maintains an upright orientation at all times.
 
-5. **Distance band rotation**  
-   *Expected Outcome:* Distance arcs rotate smoothly as user pans left or right.
+6. **Verify parallax background effect**   
+   *Expected Outcome:* Background layers move at different speeds creating depth effect.
 
-6. **POI marker scaling**  
-   *Expected Outcome:* POI markers change size based on distance (closer = larger).
+7. **Verify distance band rotation**   
+   *Expected Outcome:* Distance arcs rotate smoothly with device movement, accurately display directional indicators (N, NE, E, SE, S, SW, W, NW), and correctly return to N after a full 360° rotation.
 
-7. **Pointer alignment**  
-   *Expected Outcome:* Pointer remains upright and aligned during movement.
+8. **Category filter behavior**   
+   *Expected Outcome:* Selecting a category from the horizontal scroll filters the POIs to that category only and hides other categories. Deselecting the category shows all POIs again.
 
-8. **Negative – Device compass calibration error**  
-   *Expected Outcome:* App detects calibration issue and prompts user to recalibrate.
+9. **POI marker scaling**   
+   *Expected Outcome:* POI markers change size based on distance (closer = larger, farther = smaller).
 
-9. **Recenter after background/resume**  
+10. **Minimize and resume app**   
    *Expected Outcome:* After minimizing and reopening the app, the pointer and compass recalibrate correctly.
 
+11. **Dynamic POI range**   
+   *Expected Outcome:* Range adjusts automatically based on nearby POI density — tightens in dense areas, widens in sparse areas. Walk from dense POI area to sparse area continuously.
 
+12. **No nearby POIs scenario**    
+   *Expected Outcome:* When no POIs are found within the visible range, the app suggests switching to Birds-eye view through a popup, helping the user discover POIs outside the current scan range.
 
-## Scan View – Special Notes
+13. **180° blind zone**   
+   *Expected Outcome:* No POIs displayed behind the user. 
 
-1. **Dynamic POI range**  
-   *Expected Outcome:* Range adjusts automatically based on nearby POI density.
+14. **User physically inside a POI location (Scan View)**   
+    *Expected Outcome:* Special marker or message appears on or near the pointer indicating the user is inside the POI. 
 
-2. **No nearby POIs**  
-   *Expected Outcome:* Popup suggests switching to Birds-eye mode.
+15. **User enters then exits a POI boundary**   
+   *Expected Outcome:* Inside-POI state clears and normal POI marker state resumes on exit.
 
-3. **Tap out-of-range POI**  
-   *Expected Outcome:* Dialog appears indicating POI is out of view.
+16. **Rapid device movement (fast scanning)**    
+   *Expected Outcome:* UI remains smooth; no flickering or jitter.
 
-4. **Tap-ability of POIs**  
-   *Expected Outcome:* Only POIs currently in focus can be tapped.
+17. **Simulate compass calibration error**     
+   *Expected Outcome:* App detects calibration issue and prompts user to recalibrate.
 
-5. **180° blind zone**  
-   *Expected Outcome:* No POIs displayed behind the user.
+---
 
-6. **Negative – Rapid phone movement**  
-   *Expected Outcome:* UI performance remains smooth without flicker or lag.
+## POIs in Focus and Locking / Unlocking
 
-7. **Negative – POI data latency**  
-   *Expected Outcome:* App continues showing cached POIs without freezing.
+1. **Align the pointer with a POI**   
+   *Expected Outcome:* The POI enlarges, triggers haptic feedback and optional sound, and stays at its current position on the screen (not at the center pointer).
 
+2. **Move device while POI is in focus**  
+   *Expected Outcome:* Focus remains stable without flickering.
 
+3. **Display POI summary card on focus**   
+   *Expected Outcome:* The card shows the category, name, street address, and distance. In addition, it includes a "Get more info" option and a lock/unlock button.
 
-## POIs in Focus
+4. **Tap focused POI to lock/unlock**  
+   *Expected Outcome:* The POI remains fixed in focus, and the heading cannot be updated.
 
-1. **Focus alignment feedback**  
-   *Expected Outcome:* When pointer aligns with a POI, it glows, enlarges, triggers haptic feedback, and optionally plays sound.
+5. **Tap "Get more info" to view POI details**    
+   *Expected Outcome:* Tapping "Get more info" opens a detailed view of the POI, displaying additional information generated in response to a curated prompt.
 
-2. **Focus retention**  
-   *Expected Outcome:* Focus remains for 2–3 seconds or until another POI enters focus.
+6. **Close POI detail view using (x) button**  
+   *Expected Outcome:* Tapping the close (x) button dismisses the detail view and returns the user to the previous screen (Scan or Birds-eye view).
 
-3. **Tap to lock focused POI**  
-   *Expected Outcome:* POI remains locked even as the phone moves.
+7. **Display multiple POI summary cards for overlapping POIs**   
+   *Expected Outcome:* When multiple POIs overlap, multiple summary cards are displayed along with a POI count indicator.
 
-4. **Display POI summary card**  
-   *Expected Outcome:* Card shows category, name, and distance. No close (x) icon.
+8. **Scroll through overlapping POI summary cards**   
+   *Expected Outcome:* Users can scroll vertically through overlapping POI cards maintaing an order based on distance, and each card is displayed correctly without UI glitches. 
 
-5. **Get More Info**  
-   *Expected Outcome:* Opens POI detail view with AI-generated info.
+9. **Verify focused POI marker updates with card selection (Scan-view mode)**   
+   *Expected Outcome:* As the user scrolls through summary cards, the corresponding POI marker is highlighted and enlarges at its current screen position. Marker and card remain synchronized; no lag or mismatch.
 
-6. **Negative – Multiple POIs enter focus quickly**  
-   *Expected Outcome:* Only one POI shows focus at a time. No overlap or flicker.
+10. **Multiple POIs with a category filter active**   
+    *Expected Outcome:* Only POIs matching the active filter appear in the carousel; badge count updates accordingly.
 
-7. **Negative – Device vibration disabled**  
-   *Expected Outcome:* App does not crash; visual and audio feedback still appear.
+11. **Verify POI summary card content and actions**  
+   *Expected Outcome:* Each summary card displays correct information and includes "Get more info" and lock/unlock options.
 
-8. **Focus handover rule**  
-   *Expected Outcome:* When two POIs overlap, the one nearest or most centered takes priority in focus.
+12. **Device vibration disabled**   
+   *Expected Outcome:* The app does not crash and shows no visual lag.
 
+13. **Rotate device after locking POI**  
+   *Expected Outcome:* POI remains locked despite rotating right to left and left to right.
 
+14. **Unlock POI using flick gesture**   
+   *Expected Outcome:* Lock is released; scanning resumes.
 
-## Locking / Unlocking a POI
+15. **Switch to Birds-eye view and return while POI is locked**  
+   *Expected Outcome:* POI remains locked across mode transitions.
 
-1. **Tap to lock POI**  
-   *Expected Outcome:* Lock icon updates; POI remains fixed.
+16. **Lock POI and then change category filters**     
+   *Expected Outcome:* Locked POI behavior remains consistent or resets gracefully.
 
-2. **Flick gesture to unlock**  
-   *Expected Outcome:* Lock releases; user resumes scanning.
-
-3. **First-time lock hint**  
-   *Expected Outcome:* “Flick to unlock” hint appears once per user.
-
-4. **Lock persistence**  
+17. **Lock persistence**
    *Expected Outcome:* Locked POI remains locked after minimizing and reopening the app.
 
+18. **First-time lock interaction**   
+   *Expected Outcome:* Hint (“flick to unlock”) appears once.
 
-## Overlapping POIs
-
-1. **Multiple POIs at same coordinates**  
-   *Expected Outcome:* Badge displays total number of overlapping POIs.
-
-2. **Swipe through overlapping POIs**  
-   *Expected Outcome:* Vertical carousel scrolls through summary cards.
-
-3. **Closest POI order**  
-   *Expected Outcome:* Nearest POI displays first.
-
-4. **Negative – Rapid swipe through POIs**  
-   *Expected Outcome:* Cards and markers remain synced; no lag.
-
-5. **Negative – Close icon validation**  
-   *Expected Outcome:* No close (x) icon on summary cards.
-
+---
 
 ## Birds-eye View
 
-1. **Switch to Birds-eye mode**  
-   *Expected Outcome:* Smooth transition animation plays.
+1. **Switch to Birds-eye mode**   
+   *Expected Outcome:* Map loads with smooth transition. Pitch matches 3D design.
 
-2. **Pinch-to-zoom test**  
-   *Expected Outcome:* Map zooms in/out smoothly.
+2. **Pinch to zoom in and out**   
+   *Expected Outcome:* Zoom is smooth and responsive.
 
-3. **Tap to focus POI**  
-   *Expected Outcome:* POI summary appears and locks.
+3. **Distance arcs present in Birds-eye view**  
+   *Expected Outcome:* Distance arc bands are visible in Birds-eye view, consistent with the Scan View display.
 
-4. **Map pitch angle validation**  
-   *Expected Outcome:* Pitch matches 3D design spec.
+4. **Verify arc band adjustment on zoom in Bird’s-eye view**  
+   *Expected Outcome:* Distance arc bands dynamically adjust their scale and spacing based on the zoom level (narrower range when zoomed in, wider range when zoomed out) while maintaining accurate distance representation.
 
-5. **Negative – Internet disconnected**  
-   *Expected Outcome:* Cached POIs remain visible; show offline notice.
+5. **Scanning gesture (laser pointer) in Birds-eye view**  
+   *Expected Outcome:* User can use the scanning gesture to find and lock onto a specific POI in Birds-eye mode.
 
-6. **Negative – Gesture conflict (zoom + rotate)**  
-   *Expected Outcome:* App handles combined gestures gracefully.
+6. **Switch back from Birds-eye to Scan mode**  
+   *Expected Outcome:* Scan mode resumes correctly with pointer and compass intact.
 
+7. **Perform combined gestures (zoom + rotate)**   
+   *Expected Outcome:* App handles gestures without breaking interaction.
 
+8. **Disconnect internet while in map view**   
+   *Expected Outcome:* Cached POIs remain visible; offline message shown.
 
+9. **Map re-entry state**   
+   *Expected Outcome:* Re-entering Birds-eye view restores previous zoom and pitch levels.
 
+---
 
 ## POI Info Details Screen
 
-1. **Open POI detail via “Get More Info”**  
-   *Expected Outcome:* Scrollable text displays AI-generated POI info.
-
-2. **Multiple prompt pill buttons**  
+1. **Multiple prompt pill buttons**   
    *Expected Outcome:* Each pill highlights on tap and loads relevant response.
 
-3. **Close details view**  
-   *Expected Outcome:* Returns to previous mode (Scan or Birds-eye).
+2. **Tap each prompt pill in sequence**   
+   *Expected Outcome:* Each pill highlights correctly; its AI response loads in the text box without residual content from the previous prompt.
 
-4. **Negative – API timeout or AI error**  
-   *Expected Outcome:* Retry or “Unable to load info” message appears without freezing.
+3. **Simulate API timeout or failure**    
+   *Expected Outcome:* Error message shown; app remains responsive.
 
-5. **Negative – Long AI response**  
-   *Expected Outcome:* Text scrolls smoothly; UI remains responsive.
+4. **Load long AI response**    
+   *Expected Outcome:* Content scrolls smoothly without UI lag.
 
+5. **AI response contains a URL link — tap the link**
+   *Expected Outcome:* Link opens correctly in the default browser or in-app browser.
 
+---
 
-## App Message Dialog Box
-
-1. **Display standard app message**  
-   *Expected Outcome:* Centered popup with dimmed background appears.
-
-2. **Contextual message placement**  
-   *Expected Outcome:* Message appears near related element with pointer arrow.
-
-3. **Negative – Multiple dialogs triggered simultaneously**  
-   *Expected Outcome:* Only one dialog visible; others queued or dismissed.
-
-
-## Dark Mode
+## Dark Mode Appearance
 
 1. **Enable system dark mode**  
-   *Expected Outcome:* UI switches correctly with proper contrast and visibility.
+   *Expected Outcome:* The UI adapts to the device’s default appearance (iOS Settings > Display & Brightness > Dark) with proper contrast and readability.
 
-2. **Toggle dark ↔ light mode**  
-   *Expected Outcome:* Smooth transition; all screens adapt instantly.
+2. **Toggle between dark and light mode**   
+   *Expected Outcome:* Smooth transition without flicker.
 
-3. **Negative – Incomplete theme switch**  
+3. **Check dynamic content in dark mode**   
+   *Expected Outcome:* AI content, buttons, and dialogs remain readable.
+
+4. **Change theme during active interaction**   
+   *Expected Outcome:* No layout shift or UI break.
+
+5. **Incomplete theme switch**  
    *Expected Outcome:* No missing icons or unreadable text.
 
-4. **Negative – Sudden theme change during interaction**  
-   *Expected Outcome:* No flicker or layout misalignment.
+6. **AI response in dark mode**  
+   *Expected Outcome:* Text, background, and pill buttons all render with correct dark mode theming.
 
-5. **Dynamic elements theme validation**  
-   *Expected Outcome:* Dynamic content (AI-generated text, buttons, dialogs) properly switch themes in both modes.
-
+---
 
 ## Transition Between Views
 
-1. **Verify animation between Scan and Birds-eye mode**  
-   *Expected Outcome:* Smooth circular wipe animation plays every time without lag or frame drop.
+1. **Switch between Scan and Birds-eye repeatedly**   
+   *Expected Outcome:* Circular wipe animation plays smoothly without frame drops.
 
+2. **Toggle view while a POI is in focus**   
+   *Expected Outcome:* Focus state is handled gracefully on view switch — no dangling summary card or frozen state.
 
-## Inside POI Behavior
+3. **Toggle view while a POI is locked**   
+   *Expected Outcome:* Locked state is cleared or preserved consistently — document observed behavior. No crash.
 
-1. **User physically inside a POI**  
-   *Expected Outcome:* Special marker or message appears on pointer indicating user is inside the POI.
+4. **Rapid repeated toggling between views**   
+   *Expected Outcome:* No animation stacking, no UI freeze, no crash.
+
+---
+
+## Real-World Scenarios
+
+1. **Walk while scanning POIs**  
+   *Expected Outcome:* POIs update smoothly without jitter.
+
+2. **Use app in a moving vehicle** 
+   *Expected Outcome:* UI remains stable; no erratic behavior.
+
+---
 
 ## Optional Extended QA Scenarios
 
-1. **Performance benchmark**  
-   *Expected Outcome:* All transitions and animations run consistently at 60fps.
+1. **High POI density stress test (50+ POIs)** 
+   *Expected Outcome:* No lag; stable performance.
 
-2. **Battery drain test**  
-   *Expected Outcome:* Continuous scanning for 10 minutes does not cause abnormal heating or battery drop.
+2. **Continuous usage for 10 minutes**  
+   *Expected Outcome:* No overheating or excessive battery drain.
 
-3. **Orientation change test**  
+3. **Orientation change test**
    *Expected Outcome:* Switching between portrait and landscape maintains layout integrity.
 
-4. **Accessibility test**  
-   *Expected Outcome:* All text readable; voice-over identifies POIs; gestures compatible with accessibility mode.
+4. **Accessibility testing (voice-over, readability)**  
+   *Expected Outcome:* UI remains usable with accessibility features.
+
+5. **Background app refresh behavior**
+   *Expected Outcome:* POI cache refreshes correctly on background refresh without requiring a full reload on next open.
