@@ -1,12 +1,12 @@
 # PointSF Test Cases 
 
----
+
 
 ## Pre-Test Requirement
 
 Before starting the test, ensure that the device's compass and orientation sensors are functioning correctly. You can verify this by comparing compass readings with another reliable device or by checking internal hardware diagnostics. Accurate compass calibration is essential for validating Scan View and POI alignment behavior.
 
----
+
 
 ## App Launch Screen
 
@@ -37,7 +37,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 9. **User outside San Francisco**   
    *Expected Outcome:* Dialog displays: "This app is currently only available in San Francisco."
 
----
+   
 
 ## POI Loading Screen
 
@@ -59,7 +59,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 6. **Slow network simulation**     
    *Expected Outcome:* Loading animation continues smoothly; no UI freeze.
 
----
+   
 
 ## Scan View 
 
@@ -114,7 +114,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 17. **Simulate compass calibration error**     
    *Expected Outcome:* App detects calibration issue and prompts user to recalibrate.
 
----
+   
 
 ## POIs in Focus and Locking / Unlocking
 
@@ -172,7 +172,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 18. **First-time lock interaction**   
    *Expected Outcome:* Hint (“flick to unlock”) appears once.
 
----
+   
 
 ## Birds-eye View
 
@@ -203,7 +203,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 9. **Map re-entry state**   
    *Expected Outcome:* Re-entering Birds-eye view restores previous zoom and pitch levels.
 
----
+   
 
 ## POI Info Details Screen
 
@@ -222,7 +222,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 5. **AI response contains a URL link — tap the link**
    *Expected Outcome:* Link opens correctly in the default browser or in-app browser.
 
----
+   
 
 ## Dark Mode Appearance
 
@@ -244,7 +244,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 6. **AI response in dark mode**  
    *Expected Outcome:* Text, background, and pill buttons all render with correct dark mode theming.
 
----
+   
 
 ## Transition Between Views
 
@@ -260,7 +260,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 4. **Rapid repeated toggling between views**   
    *Expected Outcome:* No animation stacking, no UI freeze, no crash.
 
----
+   
 
 ## Real-World Scenarios
 
@@ -270,7 +270,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 2. **Use app in a moving vehicle** 
    *Expected Outcome:* UI remains stable; no erratic behavior.
 
----
+   
 
 ## Optional Extended QA Scenarios
 
