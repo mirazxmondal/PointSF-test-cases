@@ -166,13 +166,11 @@ Before starting the test, ensure that the device's compass and orientation senso
 16. **Lock POI and then change category filters**     
    *Expected Outcome:* Locked POI behavior remains consistent or resets gracefully.
 
-17. **Lock persistence**
+17. **Lock persistence**     
    *Expected Outcome:* Locked POI remains locked after minimizing and reopening the app.
 
 18. **First-time lock interaction**   
    *Expected Outcome:* Hint (“flick to unlock”) appears once.
-
-   
 
 ## Birds-eye View
 
@@ -219,10 +217,8 @@ Before starting the test, ensure that the device's compass and orientation senso
 4. **Load long AI response**    
    *Expected Outcome:* Content scrolls smoothly without UI lag.
 
-5. **AI response contains a URL link — tap the link**
+5. **AI response contains a URL link — tap the link**    
    *Expected Outcome:* Link opens correctly in the default browser or in-app browser.
-
-   
 
 ## Dark Mode Appearance
 
@@ -260,31 +256,28 @@ Before starting the test, ensure that the device's compass and orientation senso
 4. **Rapid repeated toggling between views**   
    *Expected Outcome:* No animation stacking, no UI freeze, no crash.
 
-   
 
 ## Real-World Scenarios
 
 1. **Walk while scanning POIs**  
    *Expected Outcome:* POIs update smoothly without jitter.
 
-2. **Use app in a moving vehicle** 
+2. **Use app in a moving vehicle**  
    *Expected Outcome:* UI remains stable; no erratic behavior.
-
-   
 
 ## Optional Extended QA Scenarios
 
-1. **High POI density stress test (50+ POIs)** 
+1. **High POI density stress test (50+ POIs)**  
    *Expected Outcome:* No lag; stable performance.
 
 2. **Continuous usage for 10 minutes**  
    *Expected Outcome:* No overheating or excessive battery drain.
 
-3. **Orientation change test**
+3. **Orientation change test**  
    *Expected Outcome:* Switching between portrait and landscape maintains layout integrity.
 
 4. **Accessibility testing (voice-over, readability)**  
    *Expected Outcome:* UI remains usable with accessibility features.
 
-5. **Background app refresh behavior**
+5. **Background app refresh behavior**  
    *Expected Outcome:* POI cache refreshes correctly on background refresh without requiring a full reload on next open.
