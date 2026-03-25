@@ -4,7 +4,6 @@
 
 Before starting the test, ensure that the device's compass and orientation sensors are functioning correctly. You can verify this by comparing compass readings with another reliable device or by checking internal hardware diagnostics. Accurate compass calibration is essential for validating Scan View and POI alignment behavior.
 
-
 ## App Launch Screen
 
 1. **Launch the app for the first time**  
@@ -60,12 +59,11 @@ Before starting the test, ensure that the device's compass and orientation senso
 8. **Force quit during loading and relaunch**  
    *Expected Outcome:* Loading restarts cleanly without corrupted state.
 
-9. ***API failure during POI load**    
+9. **API failure during POI load**    
    *Expected Outcome:* A clear error or retry message is displayed when POIs fail to load, and the app remains responsive without freezing.
 
 10. **Slow network simulation**     
    *Expected Outcome:* Loading animation continues smoothly; no UI freeze.
-
 
 ## Scan View 
 
@@ -119,7 +117,6 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 17. **Simulate compass calibration error**     
    *Expected Outcome:* App detects calibration issue and prompts user to recalibrate.
-
 
 ## POIs in Focus and Locking / Unlocking
 
@@ -242,7 +239,6 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 6. **AI response in dark mode**  
    *Expected Outcome:* Text, background, and pill buttons all render with correct dark mode theming.
-   
 
 ## Transition Between Views
 
@@ -257,7 +253,6 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 4. **Rapid repeated toggling between views**   
    *Expected Outcome:* No animation stacking, no UI freeze, no crash.
-
 
 ## Real-World Scenarios
 
