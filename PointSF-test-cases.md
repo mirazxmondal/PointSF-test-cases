@@ -42,16 +42,28 @@ Before starting the test, ensure that the device's compass and orientation senso
 2. **Category filters visibility during loading**  
    *Expected Outcome:* Category sorting filters remain hidden during loading in both Scan and Birds-eye views.
 
-3. **Verify POI caching behavior**   
-   *Expected Outcome:* POIs should load faster on subsequent launches or when returning to the app from background, resulting in reduced loading time and a smoother experience across Scan and Birds-eye views. The app should handle relaunch scenarios gracefully without blank screens.
+3. **Verify POI fetching for current hex and neighboring hexes**  
+   *Expected Outcome:* When the user is located near the boundary of a hex, POIs from the current hex and its immediate neighboring hexes should be visible, ensuring no gaps in POI coverage across Scan and Birds-eye views.
 
-4. **Force quit during loading and relaunch**  
+4. **Verify reuse of cached POIs for already fetched hexes**  
+   *Expected Outcome:* When revisiting a previously explored area (same hex), POIs should load without noticeable delay or refetch, indicating that cached hex data is being reused.
+
+5. **Verify POI fetching on hex change (location movement)**  
+   *Expected Outcome:* When the user moves to a new hex, POIs for the new current hex and its neighboring hexes should be fetched while maintaining a smooth transition without abrupt UI reloads.
+
+6. **Verify cache eviction for distant hexes (beyond allowed range)**  
+   *Expected Outcome:* When the user moves significantly away from previously visited areas, POIs from distant hexes should no longer persist, ensuring that only nearby POIs are retained.
+
+7. **Verify smooth relaunch and background resume with cached data**  
+   *Expected Outcome:* Upon relaunching the app or returning from background without significant location change, POIs should appear quickly without blank screens, leveraging cached data where applicable.
+
+8. **Force quit during loading and relaunch**  
    *Expected Outcome:* Loading restarts cleanly without corrupted state.
 
-5. ***API failure during POI load**    
+9. ***API failure during POI load**    
    *Expected Outcome:* A clear error or retry message is displayed when POIs fail to load, and the app remains responsive without freezing.
 
-6. **Slow network simulation**     
+10. **Slow network simulation**     
    *Expected Outcome:* Loading animation continues smoothly; no UI freeze.
 
 
