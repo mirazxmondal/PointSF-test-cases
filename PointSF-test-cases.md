@@ -67,7 +67,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 ## Scan View 
 
-1. **Enter app after loading completes**  
+1. **Enter app after loading completes**
    *Expected Outcome:* The app opens in Scan mode by default and displays POIs along with category filters.
 
 2. **Toggle between Scan and Birds-eye mode**   
@@ -82,142 +82,188 @@ Before starting the test, ensure that the device's compass and orientation senso
 5. **Verify pointer behavior**  
    *Expected Outcome:* The pointer remains fixed at the center and maintains an upright orientation at all times.
 
-6. **Verify parallax background effect**   
-   *Expected Outcome:* Background layers move at different speeds creating depth effect.
-
-7. **Verify distance band rotation**   
-   *Expected Outcome:* Distance arcs rotate smoothly with device movement, accurately display directional indicators (N, NE, E, SE, S, SW, W, NW), and correctly return to N after a full 360° rotation.
-
-8. **Category filter behavior**   
-   *Expected Outcome:* Selecting a category from the horizontal scroll filters the POIs to that category only and hides other categories. Deselecting the category shows all POIs again.
-
-9. **POI marker scaling**   
-   *Expected Outcome:* POI markers change size based on distance (closer = larger, farther = smaller).
-
-10. **Minimize and resume app**   
-   *Expected Outcome:* After minimizing and reopening the app, the pointer and compass recalibrate correctly.
-
-11. **Dynamic POI range**   
-   *Expected Outcome:* Range adjusts automatically based on nearby POI density — tightens in dense areas, widens in sparse areas. Walk from dense POI area to sparse area continuously.
-
-12. **No nearby POIs scenario**    
-   *Expected Outcome:* When no POIs are found within the visible range, the app suggests switching to Birds-eye view through a popup, helping the user discover POIs outside the current scan range.
-
-13. **180° blind zone**   
-   *Expected Outcome:* No POIs displayed behind the user. 
-
-14. **User physically inside a POI location (Scan View)**   
-    *Expected Outcome:* Special marker or message appears on or near the pointer indicating the user is inside the POI. 
-
-15. **User enters then exits a POI boundary**   
-   *Expected Outcome:* Inside-POI state clears and normal POI marker state resumes on exit.
-
-16. **Rapid device movement (fast scanning)**    
-   *Expected Outcome:* UI remains smooth; no flickering or jitter.
-
-17. **Simulate compass calibration error**     
-   *Expected Outcome:* App detects calibration issue and prompts user to recalibrate.
-
-## POIs in Focus and Locking / Unlocking
-
-1. **Align the pointer with a POI**   
+6. **Align pointer with a POI**  
    *Expected Outcome:* The POI enlarges, triggers haptic feedback and optional sound, and stays at its current position on the screen (not at the center pointer).
 
-2. **Move device while POI is in focus**  
-   *Expected Outcome:* Focus remains stable without flickering.
+7. **Move device away from focused POI**  
+   *Expected Outcome:* The POI loses focus after a 1–2 second delay and the summary card disappears.
 
-3. **Display POI summary card on focus**   
+8.  **Continue scanning across POIs**  
+   *Expected Outcome:* Focus shifts dynamically between POIs as they align with the pointer.
+
+9.  **Display POI summary card on focus**   
    *Expected Outcome:* The card shows the category, name, street address, and distance. In addition, it includes a "Get more info" option and a lock/unlock button.
 
-4. **Tap focused POI to lock/unlock**  
-   *Expected Outcome:* The POI remains fixed in focus, and the heading cannot be updated.
-
-5. **Tap "Get more info" to view POI details**    
-   *Expected Outcome:* Tapping "Get more info" opens a detailed view of the POI, displaying additional information generated in response to a curated prompt.
-
-6. **Close POI detail view using (x) button**  
-   *Expected Outcome:* Tapping the close (x) button dismisses the detail view and returns the user to the previous screen (Scan or Birds-eye view).
-
-7. **Display multiple POI summary cards for overlapping POIs**   
+10. **Display multiple POI summary cards for overlapping POIs**   
    *Expected Outcome:* When multiple POIs overlap, multiple summary cards are displayed along with a POI count indicator.
 
-8. **Scroll through overlapping POI summary cards**   
+11. **Scroll through overlapping POI summary cards**   
    *Expected Outcome:* Users can scroll vertically through overlapping POI cards maintaing an order based on distance, and each card is displayed correctly without UI glitches. 
 
-9. **Verify focused POI marker updates with card selection (Scan-view mode)**   
+12. **Verify focused POI marker updates with card selection (Scan-view mode)**   
    *Expected Outcome:* As the user scrolls through summary cards, the corresponding POI marker is highlighted and enlarges at its current screen position. Marker and card remain synchronized; no lag or mismatch.
 
-10. **Multiple POIs with a category filter active**   
+13. **Multiple POIs with a category filter active**   
     *Expected Outcome:* Only POIs matching the active filter appear in the carousel; badge count updates accordingly.
 
-11. **Verify POI summary card content and actions**  
+14. **Verify POI summary card content and actions**  
    *Expected Outcome:* Each summary card displays correct information and includes "Get more info" and lock/unlock options.
 
-12. **Device vibration disabled**   
+15. **Tap POI icon directly**  
+   *Expected Outcome:* No action is triggered. POIs cannot be tapped directly in Scan View.
+
+16. **Verify parallax background effect**   
+   *Expected Outcome:* Background layers move at different speeds creating depth effect.
+
+17. **Verify distance band rotation**   
+   *Expected Outcome:* Distance arcs rotate smoothly with device movement, accurately display directional indicators (N, NE, E, SE, S, SW, W, NW), and correctly return to N after a full 360° rotation.
+
+18. **Category filter behavior**   
+   *Expected Outcome:* Selecting a category from the horizontal scroll filters the POIs to that category only and hides other categories. Deselecting the category shows all POIs again.
+
+19. **POI marker scaling**   
+   *Expected Outcome:* POI markers change size based on distance (closer = larger, farther = smaller). Focused POIs appear larger than non-focused POIs.
+
+20. **Minimize and resume app**   
+   *Expected Outcome:* After minimizing and reopening the app, the pointer and compass recalibrate correctly.
+
+21. **Dynamic POI range**   
+   *Expected Outcome:* Range adjusts automatically based on nearby POI density — tightens in dense areas, widens in sparse areas. Walk from dense POI area to sparse area continuously.
+
+22. **No nearby POIs scenario**    
+   *Expected Outcome:* When no POIs are found within the visible range, the app suggests switching to Birds-eye view through a popup, helping the user discover POIs outside the current scan range.
+
+23. **User physically inside a POI location (Scan View)**   
+    *Expected Outcome:* Special marker or message appears on or near the pointer indicating the user is inside the POI. 
+
+24. **User enters then exits a POI boundary**   
+   *Expected Outcome:* Inside-POI state clears and normal POI marker state resumes on exit.
+
+25. **Rapid device movement (fast scanning)**    
+   *Expected Outcome:* UI remains smooth; no flickering or jitter.
+
+26. **Simulate compass calibration error**     
+   *Expected Outcome:* App detects calibration issue and prompts user to recalibrate.
+
+27. **Device vibration disabled**   
    *Expected Outcome:* The app does not crash and shows no visual lag.
 
-13. **Rotate device after locking POI**  
+28. **Rotate device after locking POI**  
    *Expected Outcome:* POI remains locked despite rotating right to left and left to right.
 
-14. **Unlock POI using flick gesture**   
+29. **Unlock POI using flick gesture**   
    *Expected Outcome:* Lock is released; scanning resumes.
 
-15. **Switch to Birds-eye view and return while POI is locked**  
-   *Expected Outcome:* POI remains locked across mode transitions.
+30. **Switch to Birds-eye view and return while POI is locked**  
+   *Expected Outcome:* The POI remains locked across mode transitions, and the UI stays consistent.
 
-16. **Lock POI and then change category filters**     
-   *Expected Outcome:* Locked POI behavior remains consistent or resets gracefully.
+31. **Lock POI and then change category filters**     
+   *Expected Outcome:* It resets gracefully.
 
-17. **Lock persistence**     
+32. **Lock persistence**     
    *Expected Outcome:* Locked POI remains locked after minimizing and reopening the app.
 
-18. **First-time lock interaction**   
+33. **First-time lock interaction**   
    *Expected Outcome:* Hint (“flick to unlock”) appears once.
 
-## Birds-eye View
+34. **180° blind zone**   
+   *Expected Outcome:* No POIs displayed behind the user. 
 
-1. **Switch to Birds-eye mode**   
-   *Expected Outcome:* Map loads with smooth transition. Pitch matches 3D design.
+## Birds-eye View 
 
-2. **Pinch to zoom in and out**   
+1. **Switch to Birds-eye mode**  
+   *Expected Outcome:* Map loads with a smooth transition. Pitch matches the 3D design.
+
+2. **Pinch to zoom in and out**  
    *Expected Outcome:* Zoom is smooth and responsive.
 
 3. **Distance arcs present in Birds-eye view**  
-   *Expected Outcome:* Distance arc bands are visible in Birds-eye view, consistent with the Scan View display.
+   *Expected Outcome:* Distance arc bands are visible and consistent with the Scan View display.
 
-4. **Verify arc band adjustment on zoom in Bird’s-eye view**  
-   *Expected Outcome:* Distance arc bands dynamically adjust their scale and spacing based on the zoom level (narrower range when zoomed in, wider range when zoomed out) while maintaining accurate distance representation.
+4. **Verify arc band adjustment on zoom in Birds-eye view**  
+   *Expected Outcome:* Distance arc bands dynamically adjust their scale and spacing based on zoom level (narrower range when zoomed in, wider range when zoomed out) while maintaining accurate distance representation.
 
-5. **Scanning gesture (laser pointer) in Birds-eye view**  
-   *Expected Outcome:* User can use the scanning gesture to find and lock onto a specific POI in Birds-eye mode.
+5. **POI aligns with pointer in Birds-eye view**  
+   *Expected Outcome:* The POI enters focus state (not locked) and displays a summary card. 
 
-6. **Switch back from Birds-eye to Scan mode**  
-   *Expected Outcome:* Scan mode resumes correctly with pointer and compass intact.
+6. **Move device away from focused POI**  
+   *Expected Outcome:* The POI loses focus after a short delay (1–2 seconds) and the summary card disappears.
 
-7. **Perform combined gestures (zoom + rotate)**   
-   *Expected Outcome:* App handles gestures without breaking interaction.
+7. **Tap an unfocused POI icon (Birds-eye View)**  
+   *Expected Outcome:* The POI becomes focused and locked immediately. The summary card is displayed and the POI icon changes to the focused state.
 
-8. **Disconnect internet while in map view**   
-   *Expected Outcome:* Cached POIs remain visible; offline message shown.
+8. **Tap POI when multiple POIs are visible (Birds-eye View)**  
+   *Expected Outcome:* The selected POI becomes focused and locked, while other POIs remain unaffected.
 
-9. **Map re-entry state**   
-   *Expected Outcome:* Re-entering Birds-eye view restores previous zoom and pitch levels.
+9.  **Tap a different POI while one POI is already locked**  
+    *Expected Outcome:* The newly tapped POI becomes focused and locked, and the previously locked POI is released.
+
+10. **Tap an already focused POI to lock (Birds-eye View)**  
+    *Expected Outcome:* The POI immediately becomes focused and locked, the summary card is displayed, and map orientation locks to the POI.
+
+11. **Unlock a locked POI**  
+    *Expected Outcome:* The POI exits locked state, map orientation returns to normal, and focus behavior resets.
+
+12. **Move device after locking POI (Birds-eye View)**  
+    *Expected Outcome:* The locked POI remains fixed in focus and does not lose alignment.
+
+13. **Verify POI summary card content and actions**  
+    *Expected Outcome:* Each summary card displays correct information and includes "Get more info" and lock functionality.
+
+14. **Interact with summary card actions**  
+    *Expected Outcome:* Tapping "Get more info" or other actions opens the correct flow without breaking focus or lock state.
+
+15. **Switch back from Birds-eye to Scan mode**  
+    *Expected Outcome:* The POI remains locked across mode transitions, and the UI stays consistent.
+
+16. **Perform combined gestures (zoom + rotate)**  
+    *Expected Outcome:* The app handles gestures smoothly without breaking interaction.
+
+17. **Unlock POI using flick gesture**  
+    *Expected Outcome:* Lock is released; scanning resumes.
+
+18. **Rapidly tap multiple POIs**  
+    *Expected Outcome:* The app updates focus and lock state correctly without UI glitches or inconsistent states.
+
+19. **Disconnect internet while in map view**
+    *Expected Outcome:* Cached POIs remain visible and an offline message is displayed.
+
+20. **Map re-entry state (Birds-eye View)**  
+    *Expected Outcome:* Re-entering Birds-eye view restores the previous zoom and pitch levels.
+
+21. **Lock persistence after app lifecycle changes**  
+    *Expected Outcome:* The locked POI remains locked after minimizing and reopening the app.
+
+22. **Birds-eye view with no POIs available**  
+    *Expected Outcome:* The map loads correctly without errors, and an appropriate empty or fallback state is shown.
+
+23. **Tap overlapping or closely placed POIs**  
+    *Expected Outcome:* The correct POI is selected and highlighted.
+
+24. **Rapid device movement while focusing POI**  
+    *Expected Outcome:* Focus behavior remains stable or resets gracefully without flickering or inconsistent UI states.
 
 ## POI Info Details Screen
 
-1. **Multiple prompt pill buttons**   
+1. **Tap "Get more info" to view POI details**    
+   *Expected Outcome:* Tapping "Get more info" opens a detailed view of the POI, displaying additional information generated in response to a curated prompt.
+
+2. **Multiple prompt pill buttons**   
    *Expected Outcome:* Each pill highlights on tap and loads relevant response.
 
-2. **Tap each prompt pill in sequence**   
+3. **Tap each prompt pill in sequence**   
    *Expected Outcome:* Each pill highlights correctly; its AI response loads in the text box without residual content from the previous prompt.
 
-3. **Simulate API timeout or failure**    
+4. **Close POI detail view using (x) button**  
+   *Expected Outcome:* Tapping the close (x) button dismisses the detail view and returns the user to the previous screen (Scan or Birds-eye view).
+
+5. **Simulate API timeout or failure**    
    *Expected Outcome:* Error message shown; app remains responsive.
 
-4. **Load long AI response**    
+6. **Load long AI response**    
    *Expected Outcome:* Content scrolls smoothly without UI lag.
 
-5. **AI response contains a URL link — tap the link**    
+7. **AI response contains a URL link — tap the link**    
    *Expected Outcome:* Link opens correctly in the default browser or in-app browser.
 
 ## Dark Mode Appearance
