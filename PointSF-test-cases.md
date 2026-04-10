@@ -83,7 +83,7 @@ Before starting the test, ensure that the device's compass and orientation senso
    *Expected Outcome:* The pointer remains fixed at the center and maintains an upright orientation at all times.
 
 6. **Align pointer with a POI**  
-   *Expected Outcome:* The POI enlarges, triggers haptic feedback and optional sound, and stays at its current position on the screen (not at the center pointer).
+   *Expected Outcome:* The POI enlarges, triggers haptic feedback and optional sound, and stays at its current position on the screen.
 
 7. **Move device away from focused POI**  
    *Expected Outcome:* The POI loses focus after a 1–2 second delay and the summary card disappears.
@@ -125,7 +125,7 @@ Before starting the test, ensure that the device's compass and orientation senso
    *Expected Outcome:* POI markers change size based on distance (closer = larger, farther = smaller). Focused POIs appear larger than non-focused POIs.
 
 20. **Minimize and resume app**   
-   *Expected Outcome:* After minimizing and reopening the app, the pointer and compass recalibrate correctly.
+   *Expected Outcome:* After minimizing and reopening the app, the pointer and compass recalibrate correctly. (Minimize the app while the device is pointing in one direction, then move the device and reopen the app. It should point to the new direction.)
 
 21. **Dynamic POI range**   
    *Expected Outcome:* Range adjusts automatically based on nearby POI density — tightens in dense areas, widens in sparse areas. Walk from dense POI area to sparse area continuously.
