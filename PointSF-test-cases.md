@@ -100,7 +100,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 11. **Scroll through overlapping POI summary cards**   
    *Expected Outcome:* Users can scroll vertically through overlapping POI cards maintaing an order based on distance, and each card is displayed correctly without UI glitches. 
 
-12. **Verify focused POI marker updates with card selection (Scan-view mode)**   
+12. **Verify focused POI marker updates with card selection**   
    *Expected Outcome:* As the user scrolls through summary cards, the corresponding POI marker is highlighted and enlarges at its current screen position. Marker and card remain synchronized; no lag or mismatch.
 
 13. **Multiple POIs with a category filter active**   
@@ -216,31 +216,34 @@ Before starting the test, ensure that the device's compass and orientation senso
 15. **Switch back from Birds-eye to Scan mode**  
     *Expected Outcome:* The POI remains locked across mode transitions, and the UI stays consistent.
 
-16. **Perform combined gestures (zoom + rotate)**  
+16. **Verify focused POI marker updates with card selection**   
+   *Expected Outcome:* As the user scrolls through summary cards, the corresponding POI marker is highlighted and enlarges at its current screen position. Marker and card remain synchronized; no lag or mismatch.
+
+17. **Perform combined gestures (zoom + rotate)**  
     *Expected Outcome:* The app handles gestures smoothly without breaking interaction.
 
-17. **Unlock POI using flick gesture**  
+18. **Unlock POI using flick gesture**  
     *Expected Outcome:* Lock is released; scanning resumes.
 
-18. **Rapidly tap multiple POIs**  
+19. **Rapidly tap multiple POIs**  
     *Expected Outcome:* The app updates focus and lock state correctly without UI glitches or inconsistent states.
 
-19. **Disconnect internet while in map view**
+20. **Disconnect internet while in map view**
     *Expected Outcome:* Cached POIs remain visible and an offline message is displayed.
 
-20. **Map re-entry state (Birds-eye View)**  
+21. **Map re-entry state (Birds-eye View)**  
     *Expected Outcome:* Re-entering Birds-eye view restores the previous zoom and pitch levels.
 
-21. **Lock persistence after app lifecycle changes**  
+22. **Lock persistence after app lifecycle changes**  
     *Expected Outcome:* The locked POI remains locked after minimizing and reopening the app.
 
-22. **Birds-eye view with no POIs available**  
+23. **Birds-eye view with no POIs available**  
     *Expected Outcome:* The map loads correctly without errors, and an appropriate empty or fallback state is shown.
 
-23. **Tap overlapping or closely placed POIs**  
+24. **Tap overlapping or closely placed POIs**  
     *Expected Outcome:* The correct POI is selected and highlighted.
 
-24. **Rapid device movement while focusing POI**  
+25. **Rapid device movement while focusing POI**  
     *Expected Outcome:* Focus behavior remains stable or resets gracefully without flickering or inconsistent UI states.
 
 ## POI Info Details Screen
@@ -265,6 +268,27 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 7. **AI response contains a URL link — tap the link**    
    *Expected Outcome:* Link opens correctly in the default browser or in-app browser.
+
+8. **Tap "Get more info" for a Transit Stop POI**    
+   *Expected Outcome:* Tapping "Get more info" opens an external webpage within the app (via Chrome Custom Tabs on Android), instead of the internal AI response view.
+
+9. **Tap "Get more info" on multiple Transit Stops and switch between them**     
+   *Expected Outcome:* Each Transit Stop opens its respective page, and switching between stops does not show previously opened data. The stop ID (in content or URL) matches the selected POI.
+
+10. **Press back from external webpage (Android specific)**    
+   *Expected Outcome:* User is navigated back to the POI screen.
+
+11. **Close external webpage using browser close option**    
+   *Expected Outcome:* Closing the webpage returns the user to the app seamlessly without UI issues.
+
+12. **Compare Transit and non-Transit POI behavior**    
+   *Expected Outcome:* Transit Stops open external webpages, while other POIs load AI-generated prompt responses correctly.
+
+13. **Tap "Get more info" with no internet connection**    
+   *Expected Outcome:* Error page or message is shown; app remains stable.
+
+14. **Minimize app while external webpage is loading**
+   *Expected Outcome:* On return, page loads correctly without crash or reset.
 
 ## Dark Mode Appearance
 
