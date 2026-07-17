@@ -459,63 +459,67 @@ Before starting the test, ensure that the device's compass and orientation senso
 
    - **Expected Outcome:** Tapping **"Get more info"** opens a detailed view of the POI, displaying additional information generated in response to a curated prompt.
 
-2. **Multiple prompt pill buttons**
+2. **Tap "Get more info" from a focused POI**
+
+   - **Expected Outcome:** Tapping "Get more info" automatically locks the selected POI and opens the POI Details screen. After closing the details screen, the same POI remains locked until the user explicitly unlocks it.
+
+3. **Multiple prompt pill buttons**
 
    - **Expected Outcome:** Each pill highlights on tap and loads the relevant response.
 
-3. **Tap each prompt pill in sequence**
+4. **Tap each prompt pill in sequence**
 
    - **Expected Outcome:** Each pill highlights correctly, and its AI response loads without residual content from the previous prompt.
 
-4. **Close POI detail view using (×) button**
+5. **Close POI detail view using (×) button**
 
    - **Expected Outcome:** Tapping the close (×) button dismisses the detail view and returns the user to the previous screen (Scan View or Birds-eye View).
 
-5. **Simulate API timeout or failure**
+6. **Simulate API timeout or failure**
 
    - **Expected Outcome:** An appropriate error message is displayed, and the app remains responsive.
 
-6. **Load long AI response**
+7. **Load long AI response**
 
    - **Expected Outcome:** Long AI-generated content scrolls smoothly without UI lag.
 
-7. **AI response contains a URL link, tap the link**
+8. **AI response contains a URL link, tap the link**
 
    - **Expected Outcome:** The link opens correctly in the default browser or in-app browser.
 
-8. **Tap "Get more info" for a Transit Stop POI**
+9. **Tap "Get more info" for a Transit Stop POI**
 
    - **Expected Outcome:** Tapping **"Get more info"** opens the designated external webpage instead of the internal AI response view.
 
-9. **Tap "Get more info" on multiple Transit Stops and switch between them**
+10. **Tap "Get more info" on multiple Transit Stops and switch between them**
 
    - **Expected Outcome:** Each Transit Stop opens its corresponding webpage. Switching between stops does not display previously opened data, and the displayed stop matches the selected Transit POI.
 
-10. **Press back from external webpage (Android specific)**
+11. **Press back from external webpage (Android specific)**
 
     - **Expected Outcome:** The user is returned to the POI screen.
 
-11. **Close external webpage using the browser close option**
+12. **Close external webpage using the browser close option**
 
     - **Expected Outcome:** Closing the webpage returns the user to the app seamlessly without UI issues.
 
-12. **Compare POI detail behavior by POI type**
+13. **Compare POI detail behavior by POI type**
 
     - **Expected Outcome:** Transit Stops open their designated external webpage, Parking Meter POIs open the ParkMobile webpage in an in-app webview, and all other POIs open the internal AI-generated POI detail view.
 
-13. **Tap "Get more info" for a Parking Meter POI**
+14. **Tap "Get more info" for a Parking Meter POI**
 
     - **Expected Outcome:** Tapping **"Get more info"** opens the ParkMobile webpage in an in-app webview.
 
-14. **Verify Parking Meter webpage loads correctly**
+15. **Verify Parking Meter webpage loads correctly**
 
     - **Expected Outcome:** The ParkMobile webpage loads successfully, allowing the user to enter the parking meter ID and continue with the payment flow.
 
-15. **Tap "Get more info" with no internet connection**
+16. **Tap "Get more info" with no internet connection**
 
     - **Expected Outcome:** An appropriate error page or message is displayed, and the app remains stable.
 
-16. **Minimize app while an external webpage is loading**
+17. **Minimize app while an external webpage is loading**
     - **Expected Outcome:** On returning to the app, the webpage continues loading or is restored correctly without crashes or UI issues.
 
 ## Settings
