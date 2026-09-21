@@ -169,7 +169,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 16. **Verify distance band rotation**
 
-       - **Expected Outcome:** Distance arcs rotate smoothly with device movement, accurately display directional indicators (N, NE, E, SE, S, SW, W, NW), and correctly return to N after a full 360° rotation.
+       - **Expected Outcome:** Distance arcs rotate smoothly as the device is rotated clockwise, with directional indicators progressing in the order N, NE, E, SE, S, SW, W, NW, and correctly returning to N after a full 360° rotation.
 
 17. **Verify POI visibility within the second distance arc**
 
