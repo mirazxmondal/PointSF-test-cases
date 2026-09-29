@@ -155,159 +155,155 @@ Before starting the test, ensure that the device's compass and orientation senso
 
     - **Expected Outcome:** As the user scrolls through summary cards, the corresponding POI marker is highlighted and enlarges at its current screen position. Marker and card remain synchronized; no lag or mismatch.
 
-13. **Verify POI summary card content and actions**
-
-    - **Expected Outcome:** Each summary card displays correct information and includes "Get more info" and lock/unlock options.
-
-14. **Tap POI icon directly**
+13. **Tap POI icon directly**
 
     - **Expected Outcome:** No action is triggered. POIs cannot be tapped directly in Scan View.
 
-15. **Verify parallax background effect**
+14. **Verify parallax background effect**
 
     - **Expected Outcome:** Background layers move at different speeds creating depth effect.
 
-16. **Verify distance band rotation**
+15. **Verify distance band rotation**
 
     - **Expected Outcome:** Distance arcs rotate smoothly as the device is rotated clockwise, with directional indicators progressing in the order N, NE, E, SE, S, SW, W, NW, and correctly returning to N after a full 360° rotation.
 
-17. **Verify POI visibility within the second distance arc**
+16. **Verify POI visibility within the second distance arc**
 
     - **Expected Outcome:** The second distance arc is positioned near the horizon, and POI markers are not clipped or hidden by the arc.
 
-18. **Category filter behavior**
+17. **Category filter behavior**
 
     - **Expected Outcome:** Selecting a category from the horizontal scroll filters the carousel to display only POIs belonging to the selected category and hides POIs from other categories. Deselecting the category restores all POIs.
 
-19. **Verify POI marker scaling by distance**
+18. **Verify POI marker scaling by distance**
 
     - **Expected Outcome:** POI markers scale dynamically based on their distance from the user (closer = larger, farther = smaller). Scaling updates smoothly as the user moves, with no abrupt size changes or rendering issues.
 
-20. **Verify Transit POI marker shape and size consistency**
+19. **Verify Transit POI marker shape and size consistency**
 
     - **Expected Outcome:** Transit POIs appear as square markers and maintain the same size in both the default and focused states, without scaling or enlargement.
 
-21. **Minimize and resume app**
+20. **Minimize and resume app**
 
     - **Expected Outcome:** After minimizing and reopening the app, the pointer and compass recalibrate correctly. (Minimize the app while the device is pointing in one direction, then move the device and reopen the app. It should point to the new direction.)
 
-22. **Dynamic POI range**
+21. **Dynamic POI range**
 
     - **Expected Outcome:** Range adjusts automatically based on nearby POI density, tightens in dense areas, widens in sparse areas. Walk from dense POI area to sparse area continuously.
 
-23. **Switch to Birds-eye tip**
+22. **Switch to Birds-eye tip**
 
     - **Expected Outcome:** (Lat: 37.7575858 Lng: -122.4542809 H3 Hex: 8a283082da2ffff POIs within 500ft: 2 POIs within 500–1000ft: 6). The tip is displayed only when **three or fewer POIs** are within the Scan View range and additional POIs exist beyond the Scan View range. The updated message, **Dismiss** button, and **Switch view** action are displayed correctly, and the modal blocks interaction with the background until dismissed.
 
-24. **User physically inside a POI location (Scan View)**
+23. **User physically inside a POI location (Scan View)**
 
     - **Expected Outcome:** Special marker or message appears on or near the pointer indicating the user is inside the POI.
 
-25. **User enters then exits a POI boundary**
+24. **User enters then exits a POI boundary**
 
     - **Expected Outcome:** Inside-POI state clears and normal POI marker state resumes on exit.
 
-26. **Rapid device movement (fast scanning)**
+25. **Rapid device movement (fast scanning)**
 
     - **Expected Outcome:** UI remains smooth; no flickering or jitter.
 
-27. **Simulate compass calibration error**
+26. **Simulate compass calibration error**
 
     - **Expected Outcome:** App detects calibration issue and prompts user to recalibrate.
 
-28. **Device vibration disabled**
+27. **Device vibration disabled**
 
     - **Expected Outcome:** The app does not crash and shows no visual lag.
 
-29. **Rotate device after locking POI**
+28. **Rotate device after locking POI**
 
     - **Expected Outcome:** The POI locks successfully, a single haptic feedback is triggered, and the POI remains locked despite rotating right to left and left to right.
 
-30. **Unlock POI using flick gesture**
+29. **Unlock POI using flick gesture**
 
     - **Expected Outcome:** The lock is released, a single haptic feedback is triggered, and scanning resumes.
 
-31. **Switch to Birds-eye View and return while POI is locked**
+30. **Switch to Birds-eye View and return while POI is locked**
 
     - **Expected Outcome:** The POI remains locked across mode transitions, and the UI stays consistent.
 
-32. **Lock POI and then change category filters**
+31. **Lock POI and then change category filters**
 
     - **Expected Outcome:** The lock is cleared gracefully and the UI updates correctly.
 
-33. **Lock persistence**
+32. **Lock persistence**
 
     - **Expected Outcome:** The locked POI remains locked after minimizing and reopening the app.
 
-34. **First-time lock interaction**
+33. **First-time lock interaction**
 
     - **Expected Outcome:** The **"Flick your phone to scan..."** hint does not appear on app launch. It is displayed only after the user closes the POI details while the POI remains locked.
 
-35. **180° blind zone**
+34. **180° blind zone**
 
     - **Expected Outcome:** No POIs are displayed behind the user.
 
-36. **Verify Non-Parking Meter default zoom** 
+35. **Verify Non-Parking Meter default zoom** 
 
     - **Expected Outcome:** Scan View opens at the default zoom level. Distance arcs display **100 ft** and **200 ft**, the maximum scan range is **250 ft**, and only Non-Parking Meter POIs within **250 ft** are visible. (Lat: 37.796377, Lng: -122.405205)
 
-37. **Verify Non-Parking Meter Zoom In (+)**
+36. **Verify Non-Parking Meter Zoom In (+)**
 
     - **Expected Outcome:** Tapping the **+** button changes the distance arcs to **50 ft** and **100 ft**, reduces the maximum scan range to **125 ft**, and only Non-Parking Meter POIs within **125 ft** are visible. (Lat: 37.795954, Lng: -122.403193)
 
-38. **Verify Non-Parking Meter Zoom Out (−)**
+37. **Verify Non-Parking Meter Zoom Out (−)**
 
     - **Expected Outcome:** Tapping the **−** button changes the distance arcs to **200 ft** and **400 ft**, increases the maximum scan range to **500 ft**, and additional Non-Parking Meter POIs within **500 ft** become visible. (Lat: 37.797513, Lng: -122.402565)
 
-39. **Verify Parking Meter default zoom**
+38. **Verify Parking Meter default zoom**
 
     - **Expected Outcome:** With the Parking Meter category active, distance arcs display **10 ft** and **40 ft**, the maximum scan range is **50 ft**, and only Parking Meter POIs within **50 ft** are visible. (Lat: 37.786542, Lng: -122.418112)
 
-40. **Verify Parking Meter Zoom In (+)**
+39. **Verify Parking Meter Zoom In (+)**
 
     - **Expected Outcome:** Tapping the **+** button changes the distance arcs to **5 ft** and **20 ft**, reduces the maximum scan range to **25 ft**, and only Parking Meter POIs within **25 ft** are visible. (Lat: 37.7912985, Lng: -122.3954834)
 
-41. **Verify Parking Meter Zoom Out (−)**
+40. **Verify Parking Meter Zoom Out (−)**
 
     - **Expected Outcome:** Tapping the **−** button changes the distance arcs to **20 ft** and **80 ft**, increases the maximum scan range to **100 ft**, and additional Parking Meter POIs within **100 ft** become visible. (Lat: 37.786415, Lng: -122.418133)
 
-42. **Rapidly change zoom levels**
+41. **Rapidly change zoom levels**
 
     - **Expected Outcome:** Repeatedly tapping the **+** and **−** buttons causes no crashes, UI corruption, animation glitches, or incorrect POI rendering.
 
-43. **Verify zoom limits**
+42. **Verify zoom limits**
 
     - **Expected Outcome:** The app prevents zooming beyond the minimum and maximum supported zoom levels. Additional presses of the **+** or **−** buttons have no effect.
 
-44. **Change zoom while a POI is focused**
+43. **Change zoom while a POI is focused**
 
     - **Expected Outcome:** The focused POI remains focused if it is still within the visible range. The highlighted marker and summary card remain synchronized.
 
-45. **Change zoom while a POI is locked**
+44. **Change zoom while a POI is locked**
 
     - **Expected Outcome:** The locked POI remains locked after changing zoom levels. The marker, summary card, and lock state remain consistent.
 
-46. **Verify category filters after zoom**
+45. **Verify category filters after zoom**
 
     - **Expected Outcome:** The active category filter remains applied after changing zoom levels. Only POIs matching the selected category are displayed.
 
-47. **Verify overlapping POIs after zoom**
+46. **Verify overlapping POIs after zoom**
 
     - **Expected Outcome:** Overlapping POIs continue to display the correct summary card carousel and POI count. Cards remain ordered by distance and synchronized with the highlighted marker.
 
-48. **Switch between Scan and Birds-eye View after changing zoom**
+47. **Switch between Scan and Birds-eye View after changing zoom**
 
     - **Expected Outcome:** The selected zoom level is preserved according to the product requirements after switching between Scan and Birds-eye View, with no UI inconsistencies.
 
-49. **Minimize and resume after changing zoom**
+48. **Minimize and resume after changing zoom**
 
     - **Expected Outcome:** After minimizing and reopening the app, the zoom level is restored (or reset to the default, if intended), with correct distance arcs, scan range, and POI positions.
 
-50. **Verify POI visibility across zoom levels**
+49. **Verify POI visibility across zoom levels**
 
     - **Expected Outcome:** As the user zooms in and out, POIs correctly enter and leave the visible scan range without duplicates, missing markers, clipping, or incorrect positioning.
 
-51. **Verify POI header line length**
+50. **Verify POI header line length**
 
     - **Expected Outcome:** The header line extends up to the second distance arc.
 
@@ -591,7 +587,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 
     - **Expected Outcome:** The selected Display Mode (System, Light, or Dark) is retained after minimizing, reopening, and relaunching the app.
 
-## Transition Between Views
+## Transition Between Views 
 
 1. **Switch between Scan and Birds-eye repeatedly**
 
