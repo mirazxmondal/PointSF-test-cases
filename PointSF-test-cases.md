@@ -243,7 +243,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 
     - **Expected Outcome:** No POIs are displayed behind the user.
 
-35. **Verify Non-Parking Meter default zoom** 
+35. **Verify Non-Parking Meter default zoom**
 
     - **Expected Outcome:** Scan View opens at the default zoom level. Distance arcs display **100 ft** and **200 ft**, the maximum scan range is **250 ft**, and only Non-Parking Meter POIs within **250 ft** are visible. (Lat: 37.796377, Lng: -122.405205)
 
@@ -587,7 +587,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 
     - **Expected Outcome:** The selected Display Mode (System, Light, or Dark) is retained after minimizing, reopening, and relaunching the app.
 
-## Transition Between Views 
+## Transition Between Views
 
 1. **Switch between Scan and Birds-eye repeatedly**
 
