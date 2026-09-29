@@ -247,29 +247,29 @@ Before starting the test, ensure that the device's compass and orientation senso
 
     - **Expected Outcome:** No POIs are displayed behind the user.
 
-36. **Verify Non-Parking Meter default zoom**
+36. **Verify Non-Parking Meter default zoom** 
 
-    - **Expected Outcome:** Scan View opens at the default zoom level. Distance arcs display **100 ft** and **200 ft**, the maximum scan range is **250 ft**, and only Non-Parking Meter POIs within **250 ft** are visible.
+    - **Expected Outcome:** Scan View opens at the default zoom level. Distance arcs display **100 ft** and **200 ft**, the maximum scan range is **250 ft**, and only Non-Parking Meter POIs within **250 ft** are visible. (Lat: 37.796377, Lng: -122.405205)
 
 37. **Verify Non-Parking Meter Zoom In (+)**
 
-    - **Expected Outcome:** Tapping the **+** button changes the distance arcs to **50 ft** and **100 ft**, reduces the maximum scan range to **125 ft**, and only Non-Parking Meter POIs within **125 ft** are visible.
+    - **Expected Outcome:** Tapping the **+** button changes the distance arcs to **50 ft** and **100 ft**, reduces the maximum scan range to **125 ft**, and only Non-Parking Meter POIs within **125 ft** are visible. (Lat: 37.795954, Lng: -122.403193)
 
 38. **Verify Non-Parking Meter Zoom Out (−)**
 
-    - **Expected Outcome:** Tapping the **−** button changes the distance arcs to **200 ft** and **400 ft**, increases the maximum scan range to **500 ft**, and additional Non-Parking Meter POIs within **500 ft** become visible.
+    - **Expected Outcome:** Tapping the **−** button changes the distance arcs to **200 ft** and **400 ft**, increases the maximum scan range to **500 ft**, and additional Non-Parking Meter POIs within **500 ft** become visible. (Lat: 37.797513, Lng: -122.402565)
 
 39. **Verify Parking Meter default zoom**
 
-    - **Expected Outcome:** With the Parking Meter category active, distance arcs display **10 ft** and **40 ft**, the maximum scan range is **50 ft**, and only Parking Meter POIs within **50 ft** are visible.
+    - **Expected Outcome:** With the Parking Meter category active, distance arcs display **10 ft** and **40 ft**, the maximum scan range is **50 ft**, and only Parking Meter POIs within **50 ft** are visible. (Lat: 37.786542, Lng: -122.418112)
 
 40. **Verify Parking Meter Zoom In (+)**
 
-    - **Expected Outcome:** Tapping the **+** button changes the distance arcs to **5 ft** and **20 ft**, reduces the maximum scan range to **25 ft**, and only Parking Meter POIs within **25 ft** are visible.
+    - **Expected Outcome:** Tapping the **+** button changes the distance arcs to **5 ft** and **20 ft**, reduces the maximum scan range to **25 ft**, and only Parking Meter POIs within **25 ft** are visible. (Lat: 37.7912985, Lng: -122.3954834)
 
 41. **Verify Parking Meter Zoom Out (−)**
 
-    - **Expected Outcome:** Tapping the **−** button changes the distance arcs to **20 ft** and **80 ft**, increases the maximum scan range to **100 ft**, and additional Parking Meter POIs within **100 ft** become visible.
+    - **Expected Outcome:** Tapping the **−** button changes the distance arcs to **20 ft** and **80 ft**, increases the maximum scan range to **100 ft**, and additional Parking Meter POIs within **100 ft** become visible. (Lat: 37.786415, Lng: -122.418133)
 
 42. **Rapidly change zoom levels**
 
