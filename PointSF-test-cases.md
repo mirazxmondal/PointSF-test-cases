@@ -44,7 +44,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 10. **Change location permission while the app is running**
 
-       - **Expected Outcome:** The app detects the updated permission state when returning from Settings and updates its behavior without requiring a reinstall or leaving the app in an inconsistent state.
+    - **Expected Outcome:** The app detects the updated permission state when returning from Settings and updates its behavior without requiring a reinstall or leaving the app in an inconsistent state.
 
 ### Android-Specific Permission Tests
 
@@ -103,7 +103,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 10. **Slow network simulation**
 
-       - **Expected Outcome:** Loading animation continues smoothly; no UI freeze.
+    - **Expected Outcome:** Loading animation continues smoothly; no UI freeze.
 
 ## Scan View
 
@@ -139,9 +139,9 @@ Before starting the test, ensure that the device's compass and orientation senso
 
    - **Expected Outcome:** Focus shifts dynamically between POIs as they align with the pointer.
 
-9.  **Display POI summary card on focus**
+9. **Display POI summary card on focus**
 
-       - **Expected Outcome:** The card shows the category, name, street address, and distance. In addition, it includes a "Get more info" option and a lock/unlock button.
+   - **Expected Outcome:** The card shows the category, name, street address, and distance. In addition, it includes a "Get more info" option and a lock/unlock button.
 
 10. **Display multiple POI summary cards for overlapping POIs**
 
@@ -149,27 +149,27 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 11. **Scroll through overlapping POI summary cards**
 
-       - **Expected Outcome:** Users can scroll vertically through overlapping POI cards maintaing an order based on distance, and each card is displayed correctly without UI glitches.
+    - **Expected Outcome:** Users can scroll vertically through overlapping POI cards maintaing an order based on distance, and each card is displayed correctly without UI glitches.
 
 12. **Verify focused POI marker updates with card selection**
 
-       - **Expected Outcome:** As the user scrolls through summary cards, the corresponding POI marker is highlighted and enlarges at its current screen position. Marker and card remain synchronized; no lag or mismatch.
+    - **Expected Outcome:** As the user scrolls through summary cards, the corresponding POI marker is highlighted and enlarges at its current screen position. Marker and card remain synchronized; no lag or mismatch.
 
 13. **Verify POI summary card content and actions**
 
-       - **Expected Outcome:** Each summary card displays correct information and includes "Get more info" and lock/unlock options.
+    - **Expected Outcome:** Each summary card displays correct information and includes "Get more info" and lock/unlock options.
 
 14. **Tap POI icon directly**
 
-       - **Expected Outcome:** No action is triggered. POIs cannot be tapped directly in Scan View.
+    - **Expected Outcome:** No action is triggered. POIs cannot be tapped directly in Scan View.
 
 15. **Verify parallax background effect**
 
-       - **Expected Outcome:** Background layers move at different speeds creating depth effect.
+    - **Expected Outcome:** Background layers move at different speeds creating depth effect.
 
 16. **Verify distance band rotation**
 
-       - **Expected Outcome:** Distance arcs rotate smoothly as the device is rotated clockwise, with directional indicators progressing in the order N, NE, E, SE, S, SW, W, NW, and correctly returning to N after a full 360° rotation.
+    - **Expected Outcome:** Distance arcs rotate smoothly as the device is rotated clockwise, with directional indicators progressing in the order N, NE, E, SE, S, SW, W, NW, and correctly returning to N after a full 360° rotation.
 
 17. **Verify POI visibility within the second distance arc**
 
@@ -177,23 +177,23 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 18. **Category filter behavior**
 
-       - **Expected Outcome:** Selecting a category from the horizontal scroll filters the carousel to display only POIs belonging to the selected category and hides POIs from other categories. Deselecting the category restores all POIs.
+    - **Expected Outcome:** Selecting a category from the horizontal scroll filters the carousel to display only POIs belonging to the selected category and hides POIs from other categories. Deselecting the category restores all POIs.
 
 19. **Verify POI marker scaling by distance**
 
-       - **Expected Outcome:** POI markers scale dynamically based on their distance from the user (closer = larger, farther = smaller). Scaling updates smoothly as the user moves, with no abrupt size changes or rendering issues.
+    - **Expected Outcome:** POI markers scale dynamically based on their distance from the user (closer = larger, farther = smaller). Scaling updates smoothly as the user moves, with no abrupt size changes or rendering issues.
 
 20. **Verify Transit POI marker shape and size consistency**
 
-       - **Expected Outcome:** Transit POIs appear as square markers and maintain the same size in both the default and focused states, without scaling or enlargement.
+    - **Expected Outcome:** Transit POIs appear as square markers and maintain the same size in both the default and focused states, without scaling or enlargement.
 
 21. **Minimize and resume app**
 
-       - **Expected Outcome:** After minimizing and reopening the app, the pointer and compass recalibrate correctly. (Minimize the app while the device is pointing in one direction, then move the device and reopen the app. It should point to the new direction.)
+    - **Expected Outcome:** After minimizing and reopening the app, the pointer and compass recalibrate correctly. (Minimize the app while the device is pointing in one direction, then move the device and reopen the app. It should point to the new direction.)
 
 22. **Dynamic POI range**
 
-       - **Expected Outcome:** Range adjusts automatically based on nearby POI density, tightens in dense areas, widens in sparse areas. Walk from dense POI area to sparse area continuously.
+    - **Expected Outcome:** Range adjusts automatically based on nearby POI density, tightens in dense areas, widens in sparse areas. Walk from dense POI area to sparse area continuously.
 
 23. **Switch to Birds-eye tip**
 
@@ -205,19 +205,19 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 25. **User enters then exits a POI boundary**
 
-       - **Expected Outcome:** Inside-POI state clears and normal POI marker state resumes on exit.
+    - **Expected Outcome:** Inside-POI state clears and normal POI marker state resumes on exit.
 
 26. **Rapid device movement (fast scanning)**
 
-       - **Expected Outcome:** UI remains smooth; no flickering or jitter.
+    - **Expected Outcome:** UI remains smooth; no flickering or jitter.
 
 27. **Simulate compass calibration error**
 
-       - **Expected Outcome:** App detects calibration issue and prompts user to recalibrate.
+    - **Expected Outcome:** App detects calibration issue and prompts user to recalibrate.
 
 28. **Device vibration disabled**
 
-       - **Expected Outcome:** The app does not crash and shows no visual lag.
+    - **Expected Outcome:** The app does not crash and shows no visual lag.
 
 29. **Rotate device after locking POI**
 
@@ -309,7 +309,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 51. **Verify POI header line length**
 
-       - **Expected Outcome:** The header line extends up to the second distance arc.
+    - **Expected Outcome:** The header line extends up to the second distance arc.
 
 ## Birds-eye View
 
@@ -351,14 +351,13 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 10. **Tap an unfocused POI icon**
 
-       - **Expected Outcome:** The POI becomes focused and locked immediately. The summary card is displayed and the POI icon changes to the focused state.
+    - **Expected Outcome:** The POI becomes focused and locked immediately. The summary card is displayed and the POI icon changes to the focused state.
 
 11. **Tap POI when multiple POIs are visible**
 
-       - **Expected Outcome:** The selected POI becomes focused and locked, while other POIs remain unaffected.
+    - **Expected Outcome:** The selected POI becomes focused and locked, while other POIs remain unaffected.
 
 12. **Tap a different POI while one POI is already locked**
-
 
     - **Expected Outcome:** The newly tapped POI becomes focused and locked, and the previously locked POI is released.
 
@@ -376,11 +375,11 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 16. **Verify focused POI marker updates with card selection**
 
-       - **Expected Outcome:** As the user scrolls through summary cards, the corresponding POI marker is highlighted and enlarges at its current screen position. Marker and card remain synchronized; no lag or mismatch.
+    - **Expected Outcome:** As the user scrolls through summary cards, the corresponding POI marker is highlighted and enlarges at its current screen position. Marker and card remain synchronized; no lag or mismatch.
 
 17. **Verify Transit POI marker shape and size consistency**
 
-       - **Expected Outcome:** Transit POIs appear as square markers and maintain the same size in both the default and focused states, without scaling or enlargement.
+    - **Expected Outcome:** Transit POIs appear as square markers and maintain the same size in both the default and focused states, without scaling or enlargement.
 
 18. **Perform combined gestures (zoom + rotate)**
 
@@ -420,8 +419,8 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 27. **Verify POI header line length**
 
-       - **Expected Outcome:** The header line extends up to the second distance arc.
-  
+    - **Expected Outcome:** The header line extends up to the second distance arc.
+
 ## POI Icon Mapping
 
 **Note:** Execute these test cases using the **POI Icon Mapping** dataset. Validate each supported POI category and subcategory at the specified coordinates. Verify both the default and focused icon states.
@@ -493,7 +492,7 @@ Before starting the test, ensure that the device's compass and orientation senso
 
 10. **Tap "Get more info" on multiple Transit Stops and switch between them**
 
-   - **Expected Outcome:** Each Transit Stop opens its corresponding webpage. Switching between stops does not display previously opened data, and the displayed stop matches the selected Transit POI.
+- **Expected Outcome:** Each Transit Stop opens its corresponding webpage. Switching between stops does not display previously opened data, and the displayed stop matches the selected Transit POI.
 
 11. **Press back from external webpage (Android specific)**
 
@@ -581,15 +580,16 @@ Before starting the test, ensure that the device's compass and orientation senso
     - **Expected Outcome:** Tapping **Reset** restores the Scan Range to the default configuration, and the updated range is reflected in both Settings and Scan View.
 
 15. **Verify lock and unlock icon appearance**
+
     - **Expected Outcome:** Lock and unlock icons match the design specification in both Light and Dark modes, including the correct foreground and background colors.
 
 16. **Verify Sound setting persistence**
 
-       - **Expected Outcome:** The selected Sound setting is retained after minimizing, reopening, and relaunching the app.
+    - **Expected Outcome:** The selected Sound setting is retained after minimizing, reopening, and relaunching the app.
 
 17. **Verify Display Mode persistence**
 
-       - **Expected Outcome:** The selected Display Mode (System, Light, or Dark) is retained after minimizing, reopening, and relaunching the app.
+    - **Expected Outcome:** The selected Display Mode (System, Light, or Dark) is retained after minimizing, reopening, and relaunching the app.
 
 ## Transition Between Views
 
